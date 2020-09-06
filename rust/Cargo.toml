@@ -1,0 +1,25 @@
+[package]
+name = "hello-twirp"
+version = "0.1.0"
+authors = ["Ken Sato <ksato9700@gmail.com>"]
+edition = "2018"
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
+
+[dependencies]
+bytes = "0.4"
+prost-twirp = "0.1.0"
+prost = "0.3"
+prost-derive = "0.3"
+futures = "0.1"
+hyper = "0.11"
+tokio-core = "0.1"
+
+# apis = { git = "ssh://git@github.com/ksato9700/apis", rev = "1c249cf0221968e2af63fa4e48693828e2f52da1" }
+apis = { path = "../../apis/rust/twirp" }
