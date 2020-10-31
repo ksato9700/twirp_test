@@ -1,8 +1,14 @@
-use apis::service;
 use futures::future::Future;
 use hyper::Client;
 use tokio_core::reactor::Core;
+extern crate prost;
+#[macro_use]
+extern crate prost_derive;
+extern crate prost_twirp;
 
+mod service {
+    include!(concat!(env!("OUT_DIR"), "/helloworld.rs"));
+}
 fn main() {
     let mut core = Core::new().unwrap();
     let hyper_client = Client::new(&core.handle());

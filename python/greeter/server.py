@@ -1,8 +1,8 @@
 from twirp.asgi import TwirpASGIApp
 # from twirp.exceptions import InvalidArgument
 
-from apis import helloworld_pb2
-from apis import helloworld_twirp
+from helloworld import helloworld_pb2
+from helloworld import helloworld_twirp
 
 
 class GreeterService(object):

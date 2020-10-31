@@ -1,8 +1,12 @@
 from twirp.context import Context
 from twirp.exceptions import TwirpServerException
 
-from apis import helloworld_pb2
-from apis import helloworld_twirp
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
+
+from helloworld import helloworld_pb2
+from helloworld import helloworld_twirp
 
 client = helloworld_twirp.GreeterClient("http://localhost:5000")
 

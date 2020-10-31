@@ -1,8 +1,16 @@
-use apis::service::{Greeter, HelloReply, HelloRequest, PTReq, PTRes};
 use futures::future;
-// use futures::Future;
 use hyper::server::Http;
 use std::thread;
+extern crate prost;
+#[macro_use]
+extern crate prost_derive;
+extern crate prost_twirp;
+
+mod service {
+    include!(concat!(env!("OUT_DIR"), "/helloworld.rs"));
+}
+use service::{Greeter, HelloReply, HelloRequest, PTReq, PTRes};
+
 
 #[derive(Clone)]
 struct GreeterService;
